@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotherfield Farms Meeting Prep</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7f5;
+        --panel: #ffffff;
+        --panel-soft: #f8faf8;
+        --ink: #13233a;
+        --text: #1d2a35;
+        --muted: #657383;
+        --border: #dce4df;
+        --green: #276739;
+        --blue: #356a84;
+        --amber: #bf7b18;
+        --red: #b33a34;
+        --shadow: 0 18px 50px rgba(19, 35, 58, 0.08);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background:
+          linear-gradient(90deg, rgba(39, 103, 57, 0.025) 1px, transparent 1px) 0 0 / 42px 42px,
+          linear-gradient(180deg, #f9fbfa 0%, var(--bg) 42%, #eef4f0 100%);
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 46px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 18px;
+        align-items: stretch;
+        margin-bottom: 18px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin-bottom: 14px;
+        color: var(--ink);
+        font-size: clamp(36px, 6vw, 70px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        color: var(--ink);
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.24;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .eyebrow {
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .hero,
+      .panel,
+      .status-pill,
+      .context-card {
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      .hero p {
+        max-width: 820px;
+        margin-bottom: 0;
+        font-size: 18px;
+      }
+
+      .context-card {
+        display: grid;
+        align-content: start;
+        gap: 9px;
+        padding: 18px;
+        color: #dfeee8;
+        background: linear-gradient(145deg, #173049, #285c42);
+      }
+
+      .context-card strong {
+        color: #fff;
+        font-size: 18px;
+      }
+
+      .context-card span {
+        color: #c8d9d4;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
+        gap: 16px;
+      }
+
+      .panel {
+        padding: 20px;
+      }
+
+      .wide {
+        grid-column: 1 / -1;
+      }
+
+      .agenda-list,
+      .decision-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .agenda-item {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 13px;
+        background: var(--panel-soft);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .agenda-item > span {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: #fff;
+        background: var(--green);
+        border-radius: 6px;
+        font-weight: 900;
+      }
+
+      .agenda-item strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .agenda-item p,
+      .decision p {
+        margin: 5px 0 0;
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      ul {
+        display: grid;
+        gap: 10px;
+        padding-left: 19px;
+        margin: 0;
+      }
+
+      li::marker {
+        color: var(--green);
+      }
+
+      .decision {
+        display: grid;
+        gap: 7px;
+        padding: 12px;
+        background: var(--panel-soft);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-height: 24px;
+        padding: 0 9px;
+        color: #24566f;
+        background: #dcecf3;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .risk-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .status-pill {
+        min-height: 108px;
+        padding: 16px;
+        box-shadow: none;
+      }
+
+      .status-pill span {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .status-pill strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .status-pill.needs {
+        border-left: 4px solid var(--red);
+      }
+
+      .status-pill.method {
+        border-left: 4px solid var(--blue);
+      }
+
+      .source-note {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 880px) {
+        header,
+        .grid,
+        .risk-grid {
+          grid-template-columns: 1fr;
+        }
+
+        main {
+          width: min(100% - 24px, 1180px);
+          padding-top: 22px;
+        }
+
+        .hero {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <section class="hero" aria-labelledby="meeting-prep-title">
+          <p class="eyebrow">Wednesday call prep</p>
+          <h1 id="meeting-prep-title">Lead with access, then use the dashboard to make decisions.</h1>
+          <p>
+            Richie already likes the dashboard direction, but his latest concern is durable Excel access for less
+            technical reviewers. Validate that access model first, then move into CPI, NPV, benchmark, and data-quality
+            choices.
+          </p>
+        </section>
+        <aside class="context-card" aria-label="Meeting context">
+          <strong>Meeting anchor</strong>
+          <span>Wednesday, May 13, 2026 at 3:00 PM ET</span>
+          <span>Primary outcome: agree on the next analytical pass.</span>
+          <span>This page is intentionally not linked from the client-facing dashboard.</span>
+        </aside>
+      </header>
+
+      <section class="grid" aria-label="Meeting prep">
+        <article class="panel">
+          <h2>Call flow</h2>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <span>1</span>
+              <div>
+                <strong>Open with the access model</strong>
+                <p>Acknowledge Richie's Excel-first concern: the site preserves original workbook downloads and browser-readable HTML/CSV tabs.</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <span>2</span>
+              <div>
+                <strong>Separate confirmed facts from method choices</strong>
+                <p>Confirm Ontario, crop-sales-only GI/acre, and recent soft red wheat; keep inflation and benchmark choices as open decisions.</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <span>3</span>
+              <div>
+                <strong>Decide the next analysis pass</strong>
+                <p>Use the call to pick the inflation comparison, benchmark purpose, and data-quality handling before adding heavier models.</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <span>4</span>
+              <div>
+                <strong>Close with concrete owner asks</strong>
+                <p>Ask for missing Wheat 2020 detail, suspect 2023/2024 Wheat cost corrections, and historical bid availability.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Talk track</h2>
+          <ul>
+            <li>I treated the workbook as the source of truth and used the site as a review layer, not a replacement for Excel.</li>
+            <li>The current CPI view is a constant-dollar adjustment; I have not treated it as formal present value or a crop-input-specific inflation measure.</li>
+            <li>The benchmark section is deliberately method-only until we decide whether the goal is broad futures comparison, local elevator context, or both.</li>
+            <li>I kept known data issues visible instead of excluding or filling them, because flagging was the right interim approach.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Decision prompts</h2>
+          <div class="decision-list">
+            <div class="decision">
+              <span class="badge">Workbook access</span>
+              <p>Does the Excel/download plus browser-tab setup solve the long-term access concern?</p>
+            </div>
+            <div class="decision">
+              <span class="badge">Inflation basis</span>
+              <p>Should the next pass compare Canada CPI, Ontario CPI, Farm Input Price Index, and NPV side by side?</p>
+            </div>
+            <div class="decision">
+              <span class="badge">Benchmark purpose</span>
+              <p>Are we measuring relative selling performance, local cash-bid context, futures-market exposure, or a combination?</p>
+            </div>
+            <div class="decision">
+              <span class="badge">Local source</span>
+              <p>Can Hensall Co-op or another elevator provide historical bids by crop, date, location, and unit?</p>
+            </div>
+            <div class="decision">
+              <span class="badge">Data fixes</span>
+              <p>Should Wheat 2020 and the 2023/2024 fertilizer/chemical concerns stay flagged, or should updated workbook values replace them?</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Open evidence</h2>
+          <ul>
+            <li>Farm province: Ontario.</li>
+            <li>GI/acre composition: crop-sales revenue only.</li>
+            <li>Wheat class: soft red wheat for at least the recent decades.</li>
+            <li>Hensall Co-op: local-source candidate, not a validated historical dataset.</li>
+            <li>CPI: current dashboard is constant-dollar CPI, not formal NPV.</li>
+          </ul>
+          <p class="source-note">Keep this as private prep. The client-facing dashboard should stay focused on the analysis and workbook access.</p>
+        </article>
+
+        <article class="panel wide">
+          <h2>Do not overclaim</h2>
+          <div class="risk-grid">
+            <div class="status-pill needs">
+              <span>No local bid history loaded</span>
+              <strong>Hensall is a candidate source, not a validated historical data feed.</strong>
+            </div>
+            <div class="status-pill method">
+              <span>CPI is not NPV</span>
+              <strong>The current view is constant-dollar CPI, not discounted cash flow.</strong>
+            </div>
+            <div class="status-pill needs">
+              <span>Quality flags remain open</span>
+              <strong>Wheat 2020 and 2023/2024 cost concerns should stay visible.</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
